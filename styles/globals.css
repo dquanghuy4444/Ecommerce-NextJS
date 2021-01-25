@@ -1,3 +1,6 @@
+/* ----------- Loading ------------- */
+@import url("./loading.css");
+
 html,
 body {
   padding: 0;

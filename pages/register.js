@@ -48,6 +48,14 @@ function Register (){
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
+
+        dispatch({
+            type:"NOTIFY",
+            payload:{
+                loading: true
+            }
+        })
+        
         const errMess = validRegister(name , email , password , confirmPassword);
         if(errMess){
             return dispatch({
@@ -58,13 +66,6 @@ function Register (){
             })
         }
 
-        dispatch({
-            type:"NOTIFY",
-            payload:{
-                loading: true
-            }
-        })
-
         const res = await postData('auth/register' , { name , email , password , confirmPassword })
 
         if(res.err) return dispatch({ 
@@ -74,12 +75,17 @@ function Register (){
             } 
         })
 
-        return dispatch({ 
+        dispatch({ 
             type: 'NOTIFY', 
             payload: {
                 success: res.msg
             } 
         })
+
+        setName("")
+        setEmail("")
+        setPassword("")
+        setConfirmPassword("")
     }
 
     return (
