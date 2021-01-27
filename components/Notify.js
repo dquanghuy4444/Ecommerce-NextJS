@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { DataContext } from '../store/global-state';
-import Loading from './Loading';
+import Loading from './loading';
 import Toast from './Toast';
 
 const Notify = () =>{
-    const [state , dispatch] = useContext(DataContext);
+    const {state , dispatch} = useContext(DataContext);
 
     const { notify }  = state;
 

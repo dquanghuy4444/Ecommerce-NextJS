@@ -18,7 +18,7 @@ function Signin(){
 
     const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
-    const [state , dispatch] = useContext(DataContext);
+    const {state , dispatch} = useContext(DataContext);
     const { auth } = state;
 
     const router = useRouter();

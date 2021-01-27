@@ -19,7 +19,7 @@ function Register (){
     const [password , setPassword] = useState("");
     const [confirmPassword , setConfirmPassword] = useState("");
 
-    const [state , dispatch] = useContext(DataContext);
+    const {state , dispatch} = useContext(DataContext);
 
     const handleChangeInput = (e) =>{
         const { name , value } = e.target;

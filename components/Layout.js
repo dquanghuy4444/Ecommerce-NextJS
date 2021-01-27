@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Notify from './Notify';
+import Navbar from './navbar';
+import Notify from './notify';
 
 function Layout ({children}){
     return (

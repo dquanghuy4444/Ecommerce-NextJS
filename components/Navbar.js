@@ -4,11 +4,21 @@ import { useRouter } from 'next/router';
 import { DataContext } from '../store/global-state';
 import Cookie from 'js-cookie';
 
+const styleNumItem = {
+    padding: '3px 6px',
+    background: '#ed143dc2',
+    borderRadius: '50%',
+    top: '-10px',
+    right: '-10px',
+    color: 'white',
+    fontSize: '14px',
+};
+
 function Navbar (){
     const router = useRouter();
 
-    const [state , dispatch] = useContext(DataContext);
-    const { auth } = state;
+    const {state , dispatch} = useContext(DataContext);
+    const { auth , cart } = state;
 
     const isActive = (r) =>{
         if(r === router.pathname){
@@ -81,9 +91,12 @@ function Navbar (){
                     <li className="nav-item">
                         <Link href="/cart">
                             <a className={ "nav-link " + isActive("/cart") } href="">
-                                <i className="fas fa-shopping-cart"></i>
-                                Cart
-                                </a>
+                                <i className="fas fa-shopping-cart position-relative" aria-hidden="true">
+                                    <span className="position-absolute" style={ styleNumItem }>
+                                        {cart.length}
+                                    </span>
+                                </i> Cart
+                            </a>
                         </Link>
                     </li>
                     {
