@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './modal';
 import Navbar from './navbar';
 import Notify from './notify';
 
@@ -9,6 +10,8 @@ function Layout ({children}){
             <Navbar></Navbar>
 
             <Notify></Notify>
+
+            <Modal></Modal>
             
             {
                 children
